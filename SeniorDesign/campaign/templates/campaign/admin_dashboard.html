@@ -1,0 +1,47 @@
+<!-- Base Template for All Pages -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdX - Crowdfunding Platform</title>
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="{% static 'css/global/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global/footer.css' %}">
+</head>
+<body>
+    <!-- Header with Navigation Links -->
+    <header>
+        <div class="navbar">
+            <h1><a href="{% url 'index' %}">CrowdX</a></h1>
+            <nav>
+                <a href="{% url 'projects' %}">Explore Projects</a>
+                <a href="{% url 'create_project' %}">Start a Project</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'admin_dashboard' %}">Admin Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Block -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CrowdX. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

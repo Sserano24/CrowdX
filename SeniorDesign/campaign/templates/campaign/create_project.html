@@ -1,0 +1,35 @@
+<!-- Create Project Page -->
+{% extends 'base.html' %}
+{% block content %}
+    <section class="create-project">
+        <h1>Start a New Project</h1>
+        <p>Share your vision and connect with backers to bring your project to life.</p>
+
+        <form action="#" method="post" class="create-project-form">
+            <div class="form-group">
+                <label for="title">Project Title:</label>
+                <input type="text" id="title" name="title" placeholder="Enter your project title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder="Describe your project..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="goal">Funding Goal ($):</label>
+                <input type="number" id="goal" name="goal" placeholder="Set your funding goal" required>
+            </div>
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Project Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <button type="submit" class="cta-button">Create Project</button>
+        </form>
+
+        <a href="{% url 'projects' %}" class="cta-button secondary">View All Projects</a>
+        <a href="{% url 'index' %}" class="cta-button secondary">Back to Home</a>
+    </section>
+{% endblock %}

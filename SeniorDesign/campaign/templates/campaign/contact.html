@@ -1,0 +1,26 @@
+<!-- Contact Page -->
+{% extends 'base.html' %}
+{% block content %}
+    <section class="contact">
+        <h1>Contact Us</h1>
+        <p>Have questions, feedback, or need assistance? We're here to help!</p>
+
+        <form action="#" method="post" class="contact-form">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+
+        <a href="{% url 'index' %}" class="cta-button secondary">Back to Home</a>
+    </section>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- About Page -->
+{% extends 'base.html' %}
+{% block content %}
+    <section class="about">
+        <h1>About CrowdX</h1>
+        <p>CrowdX is a leading crowdfunding platform that empowers creators and backers to bring innovative ideas to life. Our mission is to create opportunities, build communities, and support visionary projects.</p>
+        <h2>Our Mission</h2>
+        <p>We believe in the power of community and collaboration to transform ideas into reality. Our platform connects entrepreneurs, artists, and innovators with supporters who share their vision.</p>
+        <h2>Meet Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="{% static 'images/team/member1.jpg' %}" alt="Team Member">
+                <h3>John Doe</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'images/team/member2.jpg' %}" alt="Team Member">
+                <h3>Jane Smith</h3>
+                <p>Chief Marketing Officer</p>
+            </div>
+        </div>
+        <a href="{% url 'contact' %}" class="cta-button">Contact Us</a>
+        <a href="{% url 'index' %}" class="cta-button secondary">Back to Home</a>
+    </section>
+{% endblock %}

@@ -1,0 +1,9 @@
+{
+  "ExpandedNodes": [
+    "\\migrations",
+    "\\migrations\\__pycache__",
+    "\\templates",
+    "\\templates\\payments"
+  ],
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,51 @@
+{% extends 'campaign/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create a project</title>
+    
+        <!-- Global Styles -->
+        <link rel="stylesheet" href="{% static 'css/global/forms.css' %}">
+    </head>
+<section class="signup-section">
+    <h1>Create an Account</h1>
+    <p>Join us and bring your projects to life!</p>
+
+    <form action="#" method="post" class="signup-form">
+
+        <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+        </div>
+
+        <button type="submit" class="cta-button">Sign Up</button>
+    </form>
+
+    <p>Already have an account? <a href="{% url 'login' %}" class="cta-button secondary">Login</a></p>
+    <a href="{% url 'index' %}" class="cta-button secondary">Back to Home</a>
+</section>
+{% endblock %}

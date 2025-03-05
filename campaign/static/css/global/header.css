@@ -1,0 +1,14 @@
+/* header.css */
+
+/* Add space between navigation links */
+nav a {
+    margin-right: 20px; /* Adds space between links */
+    padding: 5px 10px; /* Adds padding to links for better clickability */
+    text-decoration: none; /* Removes underline from links */
+    color: white; /* Changes text color to white */
+}
+
+/* Remove space after the last link */
+nav a:last-child {
+    margin-right: 0;
+}

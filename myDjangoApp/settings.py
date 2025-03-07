@@ -125,17 +125,17 @@ STATIC_URL = '/static/'
 
 MEDIA_URL='media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  # This assumes the static folder is at the project level
-]
+#STATICFILES_DIRS = [
+#   BASE_DIR / "static",  # This assumes the static folder is at the project level
+#]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    r"C:\Users\Dang H\Desktop\SeniorDesignme\static",
-    BASE_DIR / "static"
-]
+#STATICFILES_DIRS = [
+#   os.path.join(BASE_DIR, "static"),
+#   r"C:\Users\Dang H\Desktop\SeniorDesignme\static",
+#   BASE_DIR / "static"
+#]

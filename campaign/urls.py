@@ -15,5 +15,5 @@ urlpatterns = [
     path('cancel/', views.contact, name='cancel'),
     path('success/', views.contact, name='success'),
     path('project/<int:id>/', views.project_detail, name='project_detail'),
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
 ] 

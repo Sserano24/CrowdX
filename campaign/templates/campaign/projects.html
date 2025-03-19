@@ -1,1 +1,58 @@
-{% extends 'campaign/base.html' %}
+<!-- Project Page -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="{% static 'css/pages/project.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global/header.css' %}">
+    <!-- Page-specific Styles -->
+    <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<header>
+    <div class="navbar navbar-dark bg-dark">
+        <h1><a href="{% url 'index' %}">CrowdX</a></h1>
+        <nav>
+            <a href="{% url 'projects' %}">Explore Projects</a>
+            <a href="{% url 'create_project' %}">Start a Project</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<body>
+
+    <div class="container">
+        {% if projects %} 
+            {% for project in projects %}
+                <div class="project-box">
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.name }}">
+                    {% endif %}
+
+                    <div class="project-details">
+                        <h2>
+                            <a href="{% url 'project_detail' project.id %}">
+                                {{ project.name }}
+                            </a>
+                        </h2>
+                        <p><strong>Price:</strong> ${{ project.price }}</p>
+                        <p><strong>Category:</strong> {{ project.category.name }}</p>
+                        <p><strong>Description:</strong> {{ project.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No projects available.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

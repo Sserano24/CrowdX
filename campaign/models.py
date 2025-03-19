@@ -25,7 +25,7 @@ class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     description = models.CharField(max_length=2000, default='', blank=True, null=True)
     image = models.ImageField(upload_to='project_images/')
-
+    date = models.DateField(default=datetime.date.today) # Add date in the project
     def __str__(self):
         return self.name
 

@@ -1,1 +1,45 @@
-{% extends 'campaign/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/pages/project.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global/header.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+</head>
+
+<header>
+    <div class="navbar navbar-dark bg-dark">
+        <h1><a href="{% url 'index' %}">CrowdX</a></h1>
+        <nav>
+            <a href="{% url 'projects' %}">Explore Projects</a>
+            <a href="{% url 'create_project' %}">Start a Project</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="container">
+        <h1>{{ project.name }}</h1>
+        
+        {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid" style="max-width: 300px; height: auto;"> 
+        {% endif %}
+
+        <p><strong>Price:</strong> ${{ project.price }}</p>
+        <p><strong>Category:</strong> {{ project.category.name }}</p>
+        <p><strong>Description:</strong> {{ project.description }}</p>
+        <p><strong>Created on:</strong> {{ project.date }}</p>
+        
+        <a href="{% url 'projects' %}" class="btn btn-secondary">Back to Projects</a>
+        <a href="{% url 'payment' %}" class="btn btn-secondary">Raise Your Fund By Fiat Currency</a>
+        <a href="{% url 'payment_crypto' %}" class="btn btn-secondary">Raise Your Fund By Crypto Currency</a>
+    </div>
+</body>
+</html>

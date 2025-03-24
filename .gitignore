@@ -1,0 +1,20 @@
+# Python
+*.pyc
+__pycache__/
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Environment
+venv/
+
+# VSCode
+.vscode/
+
+# Images and uploads
+*.png
+*.jpg
+*.jpeg
+*.gif

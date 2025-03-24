@@ -1,0 +1,72 @@
+{% extends 'campaign/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        {% if project.image %}
+            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.name }}">
+        {% endif %}
+        <div class="card-body">
+            <h2 class="card-title">{{ project.name }}</h2>
+            <p><strong>Price:</strong> ${{ project.price }}</p>
+            <p><strong>Category:</strong> {{ project.category.name }}</p>
+            <p><strong>Description:</strong> {{ project.description }}</p>
+            <button id="donateCryptoBtn" class="btn btn-primary mt-3">Donate with Crypto</button>
+        </div>
+    </div>
+</div>
+
+<!-- Web3 scripts -->
+<script src="https://unpkg.com/web3@1.7.5/dist/web3.min.js"></script>
+<script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+<script src="https://unpkg.com/web3modal@1.9.12/dist/index.js"></script>
+
+<script>
+let web3;
+let provider;
+let selectedAccount;
+
+const providerOptions = {
+    walletconnect: {
+        package: window.WalletConnectProvider.default,
+        options: {
+            rpc: {
+                1337: "http://127.0.0.1:7545" // Ganache RPC
+            }
+        }
+    }
+};
+
+const web3Modal = new window.Web3Modal.default({
+    cacheProvider: false,
+    disableInjectedProvider: false,
+    providerOptions
+});
+
+document.getElementById('donateCryptoBtn').onclick = async function () {
+    try {
+        await web3Modal.clearCachedProvider(); // Force wallet selector
+        provider = await web3Modal.connect();
+        web3 = new Web3(provider);
+
+        const accounts = await web3.eth.getAccounts();
+        selectedAccount = accounts[0];
+
+        const recipient = "0x4959631678eE44FDAc976e7Ab1653FB3D7E5ae2B"; // 🔁 Replace this!
+        const amountInEth = "0.01";
+
+        const tx = await web3.eth.sendTransaction({
+            from: selectedAccount,
+            to: recipient,
+            value: web3.utils.toWei(amountInEth, 'ether')
+        });
+
+        alert("Donation successful! Tx Hash: " + tx.transactionHash);
+    } catch (err) {
+        console.error("Connection or transaction failed", err);
+        alert("Something went wrong or user cancelled.");
+    }
+};
+</script>
+{% endblock %}
+

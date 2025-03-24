@@ -1,0 +1,37 @@
+{% extends 'campaign/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create a project</title>
+    
+        <!-- Global Styles -->
+        <link rel="stylesheet" href="{% static 'css/global/forms.css' %}">
+    </head>
+
+<section class="login-section">
+    <h1>Login to Your Account</h1>
+    <p>Access your dashboard and manage your projects.</p>
+
+    <form action="#" method="post" class="login-form">
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="cta-button">Login</button>
+    </form>
+
+    <a href="{% url 'signup' %}" class="cta-button secondary">Create an account</a>
+    <a href="{% url 'index' %}" class="cta-button secondary">Back to Home</a>
+</section>
+{% endblock %}
